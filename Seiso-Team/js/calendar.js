@@ -10,26 +10,21 @@
     ・月表示
     ・日付生成
     ・今日表示
-    ・活動記録日表示
+    ・活動記録日の表示
     ・活動ページへの日付受け渡し
 */
 
 
 
-
-
-// ================================
-// 基本設定
-// ================================
-
-
 let currentDate = new Date();
+
 
 
 const calendarTitle =
 document.getElementById(
     "calendar-title"
 );
+
 
 
 const calendarDays =
@@ -41,19 +36,68 @@ document.getElementById(
 
 
 
-// 活動記録がある日
-// 後で保存機能と連携可能
+
+// ================================
+// 保存されている活動日を取得
+// ================================
 
 
-let activityDates = [
+function getActivityDates(){
 
 
-    "2026-07-17",
-    "2026-07-10",
-    "2026-07-03"
+    let dates = [];
 
 
-];
+
+    for(
+        let i = 0;
+        i < localStorage.length;
+        i++
+    ){
+
+
+        const key =
+        localStorage.key(i);
+
+
+
+        if(
+            key &&
+            key.startsWith("cleaning-")
+        ){
+
+
+            const date =
+            key.replace(
+                "cleaning-",
+                ""
+            );
+
+
+
+            if(
+                date !== "today"
+            ){
+
+                dates.push(date);
+
+            }
+
+
+        }
+
+
+    }
+
+
+
+    return dates;
+
+
+}
+
+
+
 
 
 
@@ -89,7 +133,6 @@ function renderCalendar(){
 
 
 
-
     calendarTitle.textContent =
     `${year}年${month + 1}月`;
 
@@ -119,14 +162,22 @@ function renderCalendar(){
 
 
 
+    const activityDates =
+    getActivityDates();
 
-    // 月初まで空白
+
+
+
+
+
+    // 月初の空白
 
     for(
         let i = 0;
         i < firstDay;
         i++
     ){
+
 
         const empty =
         document.createElement(
@@ -142,6 +193,7 @@ function renderCalendar(){
             empty
         );
 
+
     }
 
 
@@ -150,14 +202,13 @@ function renderCalendar(){
 
 
 
-    // 日付生成
+    // 日付作成
 
     for(
         let day = 1;
         day <= lastDate;
         day++
     ){
-
 
 
         const dateButton =
@@ -179,14 +230,14 @@ function renderCalendar(){
 
 
         const fullDate =
-        `${year}-${String(month+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+        `${year}-${String(month + 1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
 
 
 
 
 
 
-        // 今日判定
+        // 今日
 
         const today =
         new Date();
@@ -215,7 +266,8 @@ function renderCalendar(){
 
 
 
-        // 活動記録あり
+
+        // 記録ありの日
 
         if(
             activityDates.includes(
@@ -233,8 +285,9 @@ function renderCalendar(){
 
 
 
-        // タップ処理
 
+
+        // タップ
 
         dateButton.addEventListener(
         "click",
@@ -254,13 +307,12 @@ function renderCalendar(){
 
 
 
-
         calendarDays.appendChild(
             dateButton
         );
 
-    }
 
+    }
 
 
 }
@@ -274,7 +326,7 @@ function renderCalendar(){
 
 
 // ================================
-// 月移動
+// 月送り
 // ================================
 
 
@@ -296,6 +348,7 @@ document
 
 
 });
+
 
 
 
@@ -346,12 +399,10 @@ function openDateSheet(
     );
 
 
-
     const selected =
     document.getElementById(
         "selected-date"
     );
-
 
 
     const button =
@@ -361,19 +412,11 @@ function openDateSheet(
 
 
 
-    const dateText =
+
+    selected.textContent =
     `${month}月${day}日`;
 
 
-
-    selected.textContent =
-    dateText;
-
-
-
-
-
-    // 活動ページへ日付を渡す
 
 
     button.href =
@@ -393,8 +436,8 @@ function openDateSheet(
 
 
 
-// シート外クリックで閉じる
 
+// シートを閉じる
 
 document
 .getElementById(
@@ -417,9 +460,6 @@ document
 
 
 });
-
-
-
 
 
 

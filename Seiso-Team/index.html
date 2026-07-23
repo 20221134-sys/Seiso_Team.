@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>清掃班活動記録</title>
+
+    <!-- PWA設定 -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- favicon -->
+    <link rel="icon" href="images/logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/calendar.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================
+     起動画面
+========================== -->
+
+<div id="splash">
+
+    <img src="images/logo.png" id="splash-logo" alt="清掃班ロゴ">
+
+</div>
+
+
+
+<!-- ==========================
+     メインページ
+========================== -->
+
+<div id="app">
+
+
+<header class="home-header">
+
+    <img 
+        src="images/logo.png"
+        class="main-logo"
+        alt="清掃班ロゴ"
+    >
+
+
+    <h1>
+        清掃班活動記録
+    </h1>
+
+
+</header>
+
+
+
+
+<!-- ==========================
+     募集カード
+========================== -->
+
+<section class="card recruit-card">
+
+
+    <h2>
+        📢 参加者募集中！
+    </h2>
+
+
+    <p>
+        清掃班に参加したい人はこちら
+    </p>
+
+
+    <a 
+        class="button"
+        href="https://forms.gle/3fiu8th9zazY7DJz6"
+        target="_blank"
+    >
+        登録フォーム
+    </a>
+
+
+</section>
+
+
+
+
+
+<!-- ==========================
+     写真フォルダ
+========================== -->
+
+
+<section class="card photo-card">
+
+
+    <h2>
+        📷 活動写真フォルダ
+    </h2>
+
+
+    <p>
+        活動の思い出を見る
+    </p>
+
+
+    <a
+        class="button"
+        href="https://drive.google.com/drive/folders/1bj0CdSgTQ-WJhwhxTuH-ENNiGUu-fwCp"
+        target="_blank"
+    >
+        Google Drive
+    </a>
+
+
+</section>
+
+
+
+
+
+
+<!-- ==========================
+     カレンダー
+========================== -->
+
+
+<section class="calendar-section">
+
+
+<h2>
+    活動カレンダー
+</h2>
+
+
+<div class="calendar-card">
+
+
+    <div class="calendar-header">
+
+
+        <button id="prev-month">
+            ＜
+        </button>
+
+
+        <h3 id="calendar-title">
+            2026年7月
+        </h3>
+
+
+        <button id="next-month">
+            ＞
+        </button>
+
+
+    </div>
+
+
+
+
+    <div class="weekdays">
+
+        <span>日</span>
+        <span>月</span>
+        <span>火</span>
+        <span>水</span>
+        <span>木</span>
+        <span>金</span>
+        <span>土</span>
+
+    </div>
+
+
+
+    <div id="calendar-days">
+
+        <!-- JavaScriptで生成 -->
+
+    </div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==========================
+     日付選択シート
+========================== -->
+
+
+<div id="date-sheet"
+class="bottom-sheet">
+
+
+<div class="sheet-content">
+
+
+<h3 id="selected-date">
+    ○月○日
+</h3>
+
+
+<p>
+    活動記録を書く
+</p>
+
+
+<a
+id="write-button"
+class="button"
+href="pages/activity.html"
+>
+    記録ページへ
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ==========================
+     最新の活動
+========================== -->
+
+
+<section class="latest-section">
+
+
+<h2>
+    最新の活動
+</h2>
+
+
+
+<div class="latest-box">
+
+
+<div class="latest-item">
+
+    <p>
+        7月17日
+    </p>
+
+    <span>
+        校舎周辺清掃
+    </span>
+
+</div>
+
+
+
+<div class="latest-item">
+
+    <p>
+        7月10日
+    </p>
+
+    <span>
+        教室清掃
+    </span>
+
+</div>
+
+
+
+
+<div class="latest-item">
+
+    <p>
+        7月3日
+    </p>
+
+    <span>
+        中庭清掃
+    </span>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==========================
+     フッター
+========================== -->
+
+
+<footer>
+
+
+<p>
+    月に代わってお掃除よ！🌙
+</p>
+
+
+</footer>
+
+
+
+
+</div>
+
+
+
+
+<!-- JavaScript -->
+
+<script src="js/script.js"></script>
+
+<script src="js/calendar.js"></script>
+
+
+
+</body>
+
+</html>

@@ -391,3 +391,36 @@ function loadImages(){
 loadData();
 
 loadImages();
+
+function showSaveMessage(){
+
+
+    const message =
+    document.getElementById(
+        "save-message"
+    );
+
+
+    if(!message){
+        return;
+    }
+
+
+    message.textContent =
+    "✓ 自動保存しました";
+
+
+    setTimeout(
+    ()=>{
+
+
+        message.textContent =
+        "";
+
+
+    },
+    1500
+    );
+
+
+}

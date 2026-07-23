@@ -8,7 +8,6 @@ let currentDate = new Date();
 
 
 
-
 const calendarTitle =
 document.getElementById(
     "calendar-title"

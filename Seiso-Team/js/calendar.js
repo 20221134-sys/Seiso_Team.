@@ -54,15 +54,32 @@ function getActivityDates(){
         ){
 
 
-            const date =
-            key.replace(
-                "cleaning-",
-                ""
+            const data =
+            JSON.parse(
+                localStorage.getItem(key)
             );
 
 
 
-            dates.push(date);
+            // ①本日の活動が入力されている日だけ表示
+            if(
+                data &&
+                data.activity &&
+                data.activity.trim()
+            ){
+
+
+                const date =
+                key.replace(
+                    "cleaning-",
+                    ""
+                );
+
+
+                dates.push(date);
+
+
+            }
 
 
         }

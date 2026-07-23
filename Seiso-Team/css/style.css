@@ -15,36 +15,39 @@
 
 
 html {
-    scroll-behavior: smooth;
+
+    scroll-behavior:
+    smooth;
+
 }
+
 
 
 body {
 
-    margin: 0;
+    margin:0;
 
-    background: #ffffff;
+    background:#ffffff;
 
-    color: #333;
+    color:#333;
 
     font-family:
-        "Zen Kaku Gothic New",
-        sans-serif;
+    "Zen Kaku Gothic New",
+    sans-serif;
 
-    letter-spacing: 0.03em;
+    letter-spacing:
+    0.03em;
 
 }
 
 
 
 
-/* 英語タイトル用 */
-
 .english {
 
     font-family:
-        "Poppins",
-        sans-serif;
+    "Poppins",
+    sans-serif;
 
 }
 
@@ -59,37 +62,58 @@ body {
 
 #splash {
 
-    position: fixed;
+    position:
+    fixed;
 
-    inset: 0;
 
-    background: #000;
+    inset:
+    0;
 
-    display: flex;
 
-    justify-content: center;
+    background:
+    #000;
 
-    align-items: center;
 
-    z-index: 9999;
+    display:
+    flex;
+
+
+    justify-content:
+    center;
+
+
+    align-items:
+    center;
+
+
+    z-index:
+    9999;
+
 
     animation:
-        splash-hide 1s forwards;
+    splash-hide 1s forwards;
 
-    animation-delay: 1.2s;
+
+    animation-delay:
+    1.2s;
 
 }
+
+
 
 
 
 #splash-logo {
 
-    width: min(45vw, 260px);
+    width:
+    min(65vw,400px);
 
     animation:
-        logo-light 0.8s linear;
+    logo-light 0.8s linear;
 
 }
+
+
 
 
 
@@ -120,8 +144,9 @@ body {
 
     }
 
-
 }
+
+
 
 
 
@@ -131,13 +156,18 @@ body {
 
     to {
 
-        opacity: 0;
+        opacity:
+        0;
 
-        visibility: hidden;
+
+        visibility:
+        hidden;
 
     }
 
 }
+
+
 
 
 
@@ -151,18 +181,26 @@ body {
 
 #app {
 
-    max-width: 900px;
 
-    margin: 0 auto;
+    max-width:
+    900px;
+
+
+    margin:
+    0 auto;
+
 
     padding:
 
     40px 24px;
 
+
     animation:
     fade-up 0.8s ease;
 
+
 }
+
 
 
 
@@ -172,7 +210,9 @@ body {
 
     from {
 
-        opacity: 0;
+        opacity:
+        0;
+
 
         transform:
         translateY(20px);
@@ -182,7 +222,9 @@ body {
 
     to {
 
-        opacity: 1;
+        opacity:
+        1;
+
 
         transform:
         translateY(0);
@@ -196,6 +238,10 @@ body {
 
 
 
+
+
+
+
 /* -------------------------------
    ヘッダー
 -------------------------------- */
@@ -203,21 +249,30 @@ body {
 
 .home-header {
 
-    text-align: center;
+    text-align:
+    center;
 
-    margin-bottom: 45px;
+
+    margin-bottom:
+    45px;
 
 }
 
 
 
+
+
 .main-logo {
+
 
     width:
 
-    min(55vw, 300px);
+    min(85vw,600px);
 
-    display: block;
+
+    display:
+    block;
+
 
     margin:
 
@@ -227,19 +282,28 @@ body {
 
 
 
+
+
+
 .home-header h1 {
+
 
     font-size:
 
-    clamp(28px, 5vw, 42px);
+    clamp(28px,5vw,42px);
+
 
     font-weight:
 
     700;
 
-    margin: 0;
+
+    margin:
+    0;
 
 }
+
+
 
 
 
@@ -255,22 +319,18 @@ body {
 
 
     background:
-
     #fff;
 
 
     border-radius:
-
     24px;
 
 
     padding:
-
     28px;
 
 
     margin-bottom:
-
     24px;
 
 
@@ -280,11 +340,11 @@ body {
 
 
     animation:
-
     card-up 0.7s ease;
 
-
 }
+
+
 
 
 
@@ -293,16 +353,15 @@ body {
 
 
     transform:
-
     translateY(-4px);
 
 
     transition:
-
     0.3s;
 
-
 }
+
+
 
 
 
@@ -312,7 +371,9 @@ body {
 
     from {
 
-        opacity:0;
+        opacity:
+        0;
+
 
         transform:
         translateY(15px);
@@ -322,15 +383,18 @@ body {
 
     to {
 
-        opacity:1;
+        opacity:
+        1;
+
 
         transform:
         translateY(0);
 
     }
 
-
 }
+
+
 
 
 
@@ -340,14 +404,11 @@ body {
 
 
     margin-top:
-
     0;
 
 
     font-size:
-
     22px;
-
 
 }
 
@@ -366,61 +427,51 @@ body {
 
 
     display:
-
     inline-flex;
 
 
     justify-content:
-
     center;
 
 
     align-items:
-
     center;
 
 
     min-width:
-
     180px;
 
 
     padding:
-
     13px 25px;
 
 
     border-radius:
-
     999px;
 
 
     text-decoration:
-
     none;
 
 
     color:
-
     #333;
 
 
     background:
-
     #dff3f5;
 
 
     font-weight:
-
     500;
 
 
     transition:
-
     0.3s;
 
-
 }
+
+
 
 
 
@@ -428,14 +479,11 @@ body {
 
 
     transform:
-
     translateY(-3px);
 
 
     opacity:
-
     0.8;
-
 
 }
 
@@ -445,7 +493,7 @@ body {
 
 
 /* -------------------------------
-   募集カード色
+   カードカラー
 -------------------------------- */
 
 
@@ -459,7 +507,6 @@ body {
         #fff8df,
         #ffffff
     );
-
 
 }
 
@@ -475,184 +522,6 @@ body {
         #e9f7ee,
         #ffffff
     );
-
-
-}
-
-
-
-
-
-
-
-/* -------------------------------
-   カレンダー部分
--------------------------------- */
-
-
-.calendar-section {
-
-
-    margin-top:
-
-    40px;
-
-
-}
-
-
-
-.calendar-section h2 {
-
-
-    font-size:
-
-    24px;
-
-
-}
-
-
-
-
-.calendar-card {
-
-
-    background:
-
-    #fff;
-
-
-    border-radius:
-
-    25px;
-
-
-    padding:
-
-    25px;
-
-
-    box-shadow:
-
-    0 8px 25px rgba(0,0,0,0.08);
-
-
-}
-
-
-
-
-
-/* -------------------------------
-   日付選択シート
--------------------------------- */
-
-
-.bottom-sheet {
-
-
-    position:
-
-    fixed;
-
-
-    left:
-
-    0;
-
-
-    bottom:
-
-    0;
-
-
-    width:
-
-    100%;
-
-
-    background:
-
-    rgba(0,0,0,0.25);
-
-
-    display:
-
-    none;
-
-
-    justify-content:
-
-    center;
-
-
-    align-items:
-
-    flex-end;
-
-
-    z-index:
-
-    1000;
-
-
-}
-
-
-
-
-.sheet-content {
-
-
-    background:
-
-    white;
-
-
-    width:
-
-    min(500px,100%);
-
-
-    border-radius:
-
-    30px 30px 0 0;
-
-
-    padding:
-
-    30px;
-
-
-    animation:
-
-    slide-up 0.3s ease;
-
-
-}
-
-
-
-
-@keyframes slide-up {
-
-
-    from {
-
-        transform:
-        translateY(100%);
-
-    }
-
-
-    to {
-
-        transform:
-        translateY(0);
-
-    }
-
 
 }
 
@@ -671,9 +540,7 @@ body {
 
 
     margin-top:
-
     50px;
-
 
 }
 
@@ -684,31 +551,27 @@ body {
 
 
     height:
-
     260px;
 
 
     overflow-y:
-
     auto;
 
 
     background:
-
     #fafafa;
 
 
     border-radius:
-
     20px;
 
 
     padding:
-
     10px;
 
-
 }
+
+
 
 
 
@@ -716,16 +579,15 @@ body {
 
 
     padding:
-
     18px;
 
 
     border-bottom:
-
     1px solid #eee;
 
-
 }
+
+
 
 
 
@@ -733,16 +595,34 @@ body {
 
 
     margin:
-
     0 0 5px;
 
 
     color:
-
     #777;
 
+}
+
+
+
+
+
+.no-activity {
+
+
+    text-align:
+    center;
+
+
+    color:
+    #999;
+
+
+    padding:
+    80px 0;
 
 }
+
 
 
 
@@ -758,27 +638,21 @@ footer {
 
 
     text-align:
-
     center;
 
 
     font-size:
-
     13px;
 
 
     color:
-
     #777;
 
 
     padding:
-
     40px 0 20px;
 
-
 }
-
 
 
 
@@ -796,6 +670,7 @@ footer {
 
     #app {
 
+
         padding:
 
         30px 16px;
@@ -803,11 +678,14 @@ footer {
     }
 
 
+
     .card {
+
 
         padding:
 
         22px;
+
 
         border-radius:
 
@@ -816,7 +694,9 @@ footer {
     }
 
 
+
     .button {
+
 
         width:
 

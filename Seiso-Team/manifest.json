@@ -1,0 +1,23 @@
+{
+    "name": "清掃班活動記録",
+    "short_name": "清掃班",
+    "description": "学校有志団体 清掃班の活動記録サイト",
+    
+    "start_url": "./index.html",
+    
+    "display": "standalone",
+    
+    "background_color": "#ffffff",
+    
+    "theme_color": "#dff3f5",
+
+    "icons": [
+        {
+            "src": "images/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+
+    "lang": "ja"
+}

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>
+活動記録 | 清掃班
+</title>
+
+
+<link rel="icon" href="../images/logo.png">
+
+
+<!-- Google Fonts -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+rel="stylesheet">
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="../css/activity.css">
+
+
+</head>
+
+
+
+<body>
+
+
+<main class="activity-page">
+
+
+<div class="activity-container">
+
+
+
+
+
+<!-- ======================
+     ヘッダー
+====================== -->
+
+
+<header class="activity-header">
+
+
+<h1
+class="activity-date"
+id="activity-date">
+○月○日
+</h1>
+
+
+<div class="activity-title">
+
+Today's Cleaning Log
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+
+<!-- ======================
+     本日の活動
+====================== -->
+
+
+<section class="activity-card">
+
+
+<h2>
+① 本日の活動
+</h2>
+
+
+<textarea
+id="activity"
+data-save
+class="normal-text"
+placeholder="今日行った活動を入力してください">
+</textarea>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ======================
+     清掃場所
+====================== -->
+
+
+<section class="activity-card">
+
+
+<h2>
+清掃場所
+</h2>
+
+
+<div class="place-grid">
+
+
+<div class="place-box">
+
+
+<h3>
+左半分
+</h3>
+
+
+<textarea
+id="place-left"
+data-save
+placeholder="清掃場所を入力">
+</textarea>
+
+
+</div>
+
+
+
+
+<div class="place-box">
+
+
+<h3>
+右半分
+</h3>
+
+
+<textarea
+id="place-right"
+data-save
+placeholder="清掃場所を入力">
+</textarea>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ======================
+     活動詳細
+====================== -->
+
+
+<section class="activity-card">
+
+
+<h2>
+② 活動詳細
+</h2>
+
+
+<p class="description">
+
+清掃の方法や掃除の現状を記入
+
+</p>
+
+
+<textarea
+
+id="detail"
+
+data-save
+
+class="large-text"
+
+placeholder="活動内容を詳しく入力してください">
+
+</textarea>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- ======================
+     振り返り
+====================== -->
+
+
+<section class="activity-card">
+
+
+<h2>
+③ 本日の振り返り・改善点
+</h2>
+
+
+<textarea
+
+id="reflection"
+
+data-save
+
+class="normal-text"
+
+placeholder="気づいたことや改善点">
+
+</textarea>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ======================
+     備考
+====================== -->
+
+
+<section class="activity-card">
+
+
+<h2>
+④ その他・備考
+</h2>
+
+
+<textarea
+
+id="memo"
+
+data-save
+
+class="normal-text"
+
+placeholder="その他伝えたいこと">
+
+</textarea>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ======================
+     コメント
+====================== -->
+
+
+<section class="activity-card">
+
+
+<h2>
+⑤ 顧問、代表、やまそから一言
+</h2>
+
+
+<textarea
+
+id="comment"
+
+data-save
+
+class="normal-text"
+
+placeholder="コメント">
+
+</textarea>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- ======================
+     写真
+====================== -->
+
+
+<section class="activity-card">
+
+
+<h2 class="photo-title">
+
+⑥ ビフォーアフター写真
+
+</h2>
+
+
+
+<div class="photo-area">
+
+
+
+<div class="photo-box">
+
+
+<span>
+Before
+</span>
+
+
+<img
+id="before-image"
+alt=""
+>
+
+
+<input
+
+class="photo-input"
+
+type="file"
+
+accept="image/*"
+
+onchange="previewImage(this,'before-image')">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="photo-box">
+
+
+<span>
+After
+</span>
+
+
+<img
+id="after-image"
+alt=""
+>
+
+
+<input
+
+class="photo-input"
+
+type="file"
+
+accept="image/*"
+
+onchange="previewImage(this,'after-image')">
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<p
+id="save-message"
+class="save-message">
+</p>
+
+
+
+
+
+</div>
+
+
+</main>
+
+
+
+
+
+
+
+<script src="../js/activity.js"></script>
+
+
+</body>
+
+</html>

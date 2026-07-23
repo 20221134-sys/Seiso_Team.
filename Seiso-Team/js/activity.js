@@ -9,8 +9,9 @@
 
     ・日付表示
     ・入力自動保存
+    ・活動場所保存
+    ・最新活動データ保存
     ・画像保存
-    ・LocalStorage管理
 */
 
 
@@ -26,6 +27,7 @@ const params =
 new URLSearchParams(
     window.location.search
 );
+
 
 
 const selectedDate =
@@ -44,32 +46,43 @@ document.getElementById(
 
 
 
+let pageDate =
+selectedDate;
+
+
+
+
+
 if(activityDate){
+
+
+    let date;
 
 
     if(selectedDate){
 
 
-        const date =
+        date =
         new Date(selectedDate);
-
-
-        activityDate.textContent =
-        `${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日`;
 
 
     }else{
 
 
-        const today =
+        date =
         new Date();
 
 
-        activityDate.textContent =
-        `${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`;
+        pageDate =
+        `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
 
 
     }
+
+
+
+    activityDate.textContent =
+    `${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日`;
 
 }
 
@@ -95,10 +108,9 @@ document.querySelectorAll(
 
 
 
-// 保存するページID
-
 const saveKey =
-`cleaning-${selectedDate || "today"}`;
+`cleaning-${pageDate}`;
+
 
 
 
@@ -107,7 +119,7 @@ const saveKey =
 
 
 // ================================
-// 保存読み込み
+// 保存データ読み込み
 // ================================
 
 
@@ -132,6 +144,7 @@ function loadData(){
 
 
 
+
     inputs.forEach(
         input=>{
 
@@ -140,10 +153,8 @@ function loadData(){
                 data[input.id]
             ){
 
-
                 input.value =
                 data[input.id];
-
 
             }
 
@@ -162,7 +173,7 @@ function loadData(){
 
 
 // ================================
-// 自動保存
+// 保存
 // ================================
 
 
@@ -196,6 +207,11 @@ function saveData(){
 
 
 
+    saveLatestActivity(
+        data
+    );
+
+
     showSaveMessage();
 
 
@@ -207,7 +223,68 @@ function saveData(){
 
 
 
-// 入力ごとに保存
+
+
+// ================================
+// 最新活動保存
+// ================================
+
+
+function saveLatestActivity(data){
+
+
+    const place =
+    data["cleaning-place"];
+
+
+
+    if(!place){
+        return;
+    }
+
+
+
+
+    const activityData = {
+
+
+        date:
+        pageDate,
+
+
+        place:
+        place,
+
+
+        text:
+        `${place}を掃除しました！`
+
+
+    };
+
+
+
+
+
+    localStorage.setItem(
+
+        `latest-${pageDate}`,
+
+        JSON.stringify(activityData)
+
+    );
+
+
+}
+
+
+
+
+
+
+
+
+// 入力時自動保存
 
 inputs.forEach(
 input=>{
@@ -225,7 +302,6 @@ input=>{
 
 
 });
-
 
 
 
@@ -282,10 +358,10 @@ function showSaveMessage(){
 
 
 
-// ================================
-// 画像読み込み
-// ================================
 
+// ================================
+// 画像処理
+// ================================
 
 
 function previewImage(
@@ -302,6 +378,7 @@ function previewImage(
     if(!file){
         return;
     }
+
 
 
 
@@ -348,8 +425,6 @@ function previewImage(
 
 
 
-// 画像復元
-
 function loadImages(){
 
 
@@ -370,7 +445,9 @@ function loadImages(){
 
 
         const img =
-        document.getElementById(id);
+        document.getElementById(
+            id
+        );
 
 
 
@@ -396,8 +473,10 @@ function loadImages(){
 
 
 
-
+// ================================
 // 初期処理
+// ================================
+
 
 loadData();
 

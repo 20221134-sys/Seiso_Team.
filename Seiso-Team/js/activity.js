@@ -4,24 +4,7 @@
 ================================= */
 
 
-/*
-    活動記録ページ機能
-
-    ・日付表示
-    ・入力自動保存
-    ・活動場所保存
-    ・最新活動データ保存
-    ・画像保存
-*/
-
-
-
-
-
-// ================================
-// 日付取得
-// ================================
-
+// URLの日付取得
 
 const params =
 new URLSearchParams(
@@ -29,20 +12,8 @@ new URLSearchParams(
 );
 
 
-
 const selectedDate =
 params.get("date");
-
-
-
-
-
-const activityDate =
-document.getElementById(
-    "activity-date"
-);
-
-
 
 
 
@@ -51,37 +22,40 @@ selectedDate;
 
 
 
+const dateTitle =
+document.getElementById(
+    "activity-date"
+);
 
 
-if(activityDate){
 
 
-    let date;
+
+// 日付表示
+
+if(dateTitle){
 
 
-    if(selectedDate){
+    let date =
+    selectedDate
+    ?
+    new Date(selectedDate)
+    :
+    new Date();
 
 
-        date =
-        new Date(selectedDate);
 
-
-    }else{
-
-
-        date =
-        new Date();
+    if(!pageDate){
 
 
         pageDate =
         `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,"0")}-${String(date.getDate()).padStart(2,"0")}`;
 
-
     }
 
 
 
-    activityDate.textContent =
+    dateTitle.textContent =
     `${date.getFullYear()}年${date.getMonth()+1}月${date.getDate()}日`;
 
 }
@@ -90,14 +64,16 @@ if(activityDate){
 
 
 
+// 保存キー
+
+const saveKey =
+`cleaning-${pageDate}`;
 
 
 
 
-// ================================
-// 保存対象
-// ================================
 
+// 入力欄取得
 
 const inputs =
 document.querySelectorAll(
@@ -108,20 +84,10 @@ document.querySelectorAll(
 
 
 
-const saveKey =
-`cleaning-${pageDate}`;
 
 
 
-
-
-
-
-
-// ================================
 // 保存データ読み込み
-// ================================
-
 
 function loadData(){
 
@@ -141,7 +107,6 @@ function loadData(){
 
     const data =
     JSON.parse(saved);
-
 
 
 
@@ -172,10 +137,7 @@ function loadData(){
 
 
 
-// ================================
-// 保存
-// ================================
-
+// 保存処理
 
 function saveData(){
 
@@ -212,9 +174,6 @@ function saveData(){
     );
 
 
-    showSaveMessage();
-
-
 }
 
 
@@ -225,16 +184,18 @@ function saveData(){
 
 
 
-// ================================
-// 最新活動保存
-// ================================
-
+// 最新活動へ保存
 
 function saveLatestActivity(data){
 
 
+
+    // ①本日の活動の内容
+
     const place =
-    data["cleaning-place"];
+    data["activity"];
+
+
 
 
 
@@ -245,15 +206,13 @@ function saveLatestActivity(data){
 
 
 
-    const activityData = {
+
+
+    const latest = {
 
 
         date:
         pageDate,
-
-
-        place:
-        place,
 
 
         text:
@@ -270,7 +229,7 @@ function saveLatestActivity(data){
 
         `latest-${pageDate}`,
 
-        JSON.stringify(activityData)
+        JSON.stringify(latest)
 
     );
 
@@ -283,22 +242,22 @@ function saveLatestActivity(data){
 
 
 
-
-// 入力時自動保存
+// 入力すると自動保存
 
 inputs.forEach(
 input=>{
 
 
     input.addEventListener(
-    "input",
-    ()=>{
+        "input",
+        ()=>{
 
 
-        saveData();
+            saveData();
 
 
-    });
+        }
+    );
 
 
 });
@@ -310,59 +269,7 @@ input=>{
 
 
 
-// ================================
-// 保存表示
-// ================================
-
-
-function showSaveMessage(){
-
-
-    const message =
-    document.getElementById(
-        "save-message"
-    );
-
-
-
-    if(!message){
-        return;
-    }
-
-
-
-    message.textContent =
-    "自動保存しました ✓";
-
-
-
-    setTimeout(
-    ()=>{
-
-
-        message.textContent =
-        "";
-
-
-    },
-    1500
-    );
-
-
-}
-
-
-
-
-
-
-
-
-
-// ================================
-// 画像処理
-// ================================
-
+// 写真保存
 
 function previewImage(
     input,
@@ -381,7 +288,6 @@ function previewImage(
 
 
 
-
     const reader =
     new FileReader();
 
@@ -397,8 +303,13 @@ function previewImage(
         );
 
 
-        img.src =
-        reader.result;
+
+        if(img){
+
+            img.src =
+            reader.result;
+
+        }
 
 
 
@@ -425,6 +336,9 @@ function previewImage(
 
 
 
+
+// 写真読み込み
+
 function loadImages(){
 
 
@@ -437,6 +351,12 @@ function loadImages(){
     id=>{
 
 
+        const img =
+        document.getElementById(
+            id
+        );
+
+
         const saved =
         localStorage.getItem(
             `${saveKey}-${id}`
@@ -444,16 +364,9 @@ function loadImages(){
 
 
 
-        const img =
-        document.getElementById(
-            id
-        );
-
-
-
         if(
-            saved &&
-            img
+            img &&
+            saved
         ){
 
             img.src =
@@ -473,10 +386,7 @@ function loadImages(){
 
 
 
-// ================================
 // 初期処理
-// ================================
-
 
 loadData();
 

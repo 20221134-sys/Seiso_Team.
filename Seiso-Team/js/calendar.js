@@ -7,6 +7,23 @@
 let currentDate = new Date();
 
 
+// ================================
+// 仮データ削除（一度だけ使用）
+// ================================
+
+localStorage.removeItem(
+    "cleaning-2026-07-03"
+);
+
+localStorage.removeItem(
+    "cleaning-2026-07-10"
+);
+
+localStorage.removeItem(
+    "cleaning-2026-07-17"
+);
+
+
 
 const calendarTitle =
 document.getElementById(

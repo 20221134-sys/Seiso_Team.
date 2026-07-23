@@ -4,17 +4,6 @@
 ================================= */
 
 
-/*
-    共通JavaScript
-
-    ・起動画面制御
-    ・PWA登録
-    ・最新活動表示
-*/
-
-
-
-
 
 // ================================
 // 起動画面
@@ -32,7 +21,6 @@ window.addEventListener(
     );
 
 
-
     if(splash){
 
 
@@ -40,12 +28,26 @@ window.addEventListener(
         ()=>{
 
 
-            splash.style.display =
-            "none";
+            splash.style.opacity =
+            "0";
+
+
+
+            setTimeout(
+            ()=>{
+
+
+                splash.style.display =
+                "none";
+
+
+            },
+            800
+            );
 
 
         },
-        2000
+        800
         );
 
 
@@ -60,59 +62,31 @@ window.addEventListener(
 
 
 
-
 // ================================
-// Service Worker登録
+// Service Worker
 // ================================
 
 
 if(
-    "serviceWorker" in navigator
+"serviceWorker" in navigator
 ){
 
 
-    window.addEventListener(
-    "load",
-    ()=>{
+window.addEventListener(
+"load",
+()=>{
 
 
-        navigator.serviceWorker
-        .register(
-            "/service-worker.js"
-        )
+navigator.serviceWorker
+.register(
+"./service-worker.js"
+);
 
 
-        .then(
-        ()=>{
-
-
-            console.log(
-                "Service Worker registered."
-            );
-
-
-        })
-
-
-
-        .catch(
-        error=>{
-
-
-            console.log(
-                "Service Worker registration failed:",
-                error
-            );
-
-
-        });
-
-
-    });
+});
 
 
 }
-
 
 
 
@@ -129,7 +103,6 @@ if(
 function loadLatestActivities(){
 
 
-
     const box =
     document.getElementById(
         "latest-activities"
@@ -140,6 +113,7 @@ function loadLatestActivities(){
     if(!box){
         return;
     }
+
 
 
 
@@ -154,8 +128,8 @@ function loadLatestActivities(){
 
 
     for(
-        let i = 0;
-        i < localStorage.length;
+        let i=0;
+        i<localStorage.length;
         i++
     ){
 
@@ -179,10 +153,7 @@ function loadLatestActivities(){
             );
 
 
-
-            activities.push(
-                data
-            );
+            activities.push(data);
 
 
         }
@@ -213,10 +184,6 @@ function loadLatestActivities(){
 
 
 
-
-
-    // 記録なし
-
     if(
         activities.length === 0
     ){
@@ -242,12 +209,17 @@ function loadLatestActivities(){
 
 
 
-    // 最大3件表示
-
     activities
     .slice(0,3)
     .forEach(
     activity=>{
+
+
+        const date =
+        new Date(
+            activity.date
+        );
+
 
 
         const item =
@@ -258,13 +230,6 @@ function loadLatestActivities(){
 
         item.className =
         "latest-item";
-
-
-
-        const date =
-        new Date(
-            activity.date
-        );
 
 
 
@@ -283,13 +248,11 @@ function loadLatestActivities(){
 
 
 
-        box.appendChild(
-            item
-        );
-
+        box.appendChild(item);
 
 
     });
+
 
 
 }
@@ -299,34 +262,14 @@ function loadLatestActivities(){
 
 
 
-
-
 // ================================
-// カード表示アニメーション
+// 表示開始
 // ================================
 
 
 document.addEventListener(
 "DOMContentLoaded",
 ()=>{
-
-
-    const cards =
-    document.querySelectorAll(
-        ".card"
-    );
-
-
-
-    cards.forEach(
-    (card,index)=>{
-
-
-        card.style.animationDelay =
-        `${index * 0.08}s`;
-
-
-    });
 
 
     loadLatestActivities();

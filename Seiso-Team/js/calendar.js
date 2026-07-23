@@ -14,7 +14,6 @@ document.getElementById(
 );
 
 
-
 const calendarDays =
 document.getElementById(
     "calendar-days"
@@ -23,7 +22,11 @@ document.getElementById(
 
 
 
-// 活動記録日の取得
+
+// ================================
+// 記録済みの日付取得
+// ================================
+
 
 function getActivityDates(){
 
@@ -39,7 +42,7 @@ function getActivityDates(){
     ){
 
 
-        let key =
+        const key =
         localStorage.key(i);
 
 
@@ -50,18 +53,22 @@ function getActivityDates(){
         ){
 
 
-            dates.push(
-                key.replace(
-                    "cleaning-",
-                    ""
-                )
+            const date =
+            key.replace(
+                "cleaning-",
+                ""
             );
+
+
+
+            dates.push(date);
 
 
         }
 
 
     }
+
 
 
     return dates;
@@ -72,6 +79,13 @@ function getActivityDates(){
 
 
 
+
+
+
+
+// ================================
+// カレンダー表示
+// ================================
 
 
 function renderCalendar(){
@@ -87,11 +101,12 @@ function renderCalendar(){
 
 
 
-    let year =
+    const year =
     currentDate.getFullYear();
 
 
-    let month =
+
+    const month =
     currentDate.getMonth();
 
 
@@ -102,7 +117,9 @@ function renderCalendar(){
 
 
 
-    let firstDay =
+
+
+    const firstDay =
     new Date(
         year,
         month,
@@ -111,7 +128,8 @@ function renderCalendar(){
 
 
 
-    let lastDate =
+
+    const lastDate =
     new Date(
         year,
         month+1,
@@ -121,7 +139,7 @@ function renderCalendar(){
 
 
 
-    let activityDates =
+    const activityDates =
     getActivityDates();
 
 
@@ -129,19 +147,25 @@ function renderCalendar(){
 
 
 
+    // 月初の空白
+
     for(
         let i=0;
         i<firstDay;
         i++
     ){
 
-        let empty =
+
+        const empty =
         document.createElement("div");
+
 
         empty.className =
         "calendar-day empty-day";
 
+
         calendarDays.appendChild(empty);
+
 
     }
 
@@ -150,6 +174,8 @@ function renderCalendar(){
 
 
 
+    // 日付生成
+
     for(
         let day=1;
         day<=lastDate;
@@ -157,7 +183,7 @@ function renderCalendar(){
     ){
 
 
-        let cell =
+        const cell =
         document.createElement("div");
 
 
@@ -171,8 +197,12 @@ function renderCalendar(){
 
 
 
-        let date =
+
+
+        const date =
         `${year}-${String(month+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+
+
 
 
 
@@ -180,12 +210,12 @@ function renderCalendar(){
 
         // 今日
 
-        let today =
+        const today =
         new Date();
 
 
 
-        let todayText =
+        const todayText =
         `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,"0")}-${String(today.getDate()).padStart(2,"0")}`;
 
 
@@ -207,7 +237,8 @@ function renderCalendar(){
 
 
 
-        // 記録がある日のみ
+
+        // 記録ありの日だけピンク
 
         if(
             activityDates.includes(date)
@@ -223,7 +254,13 @@ function renderCalendar(){
 
 
 
-        cell.onclick =
+
+
+
+        // 日付クリック
+
+        cell.addEventListener(
+        "click",
         ()=>{
 
 
@@ -234,7 +271,8 @@ function renderCalendar(){
             );
 
 
-        };
+        });
+
 
 
 
@@ -251,10 +289,18 @@ function renderCalendar(){
 
 
 
+
+
+
+// ================================
 // 月移動
+// ================================
+
 
 document
-.getElementById("prev-month")
+.getElementById(
+    "prev-month"
+)
 ?.addEventListener(
 "click",
 ()=>{
@@ -273,8 +319,12 @@ document
 
 
 
+
+
 document
-.getElementById("next-month")
+.getElementById(
+    "next-month"
+)
 ?.addEventListener(
 "click",
 ()=>{
@@ -294,5 +344,118 @@ document
 
 
 
+
+
+
+
+// ================================
+// 日付シート表示
+// ================================
+
+
+function openDateSheet(
+    year,
+    month,
+    day
+){
+
+
+    const sheet =
+    document.getElementById(
+        "date-sheet"
+    );
+
+
+    const selectedDate =
+    document.getElementById(
+        "selected-date"
+    );
+
+
+    const writeButton =
+    document.getElementById(
+        "write-button"
+    );
+
+
+
+    if(
+        !sheet ||
+        !selectedDate ||
+        !writeButton
+    ){
+
+        return;
+
+    }
+
+
+
+
+
+
+    selectedDate.textContent =
+    `${month}月${day}日`;
+
+
+
+
+
+    writeButton.href =
+    `pages/activity.html?date=${year}-${String(month).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+
+
+
+
+
+    sheet.style.display =
+    "flex";
+
+
+}
+
+
+
+
+
+
+
+
+// ================================
+// シートを閉じる
+// ================================
+
+
+document
+.getElementById(
+    "date-sheet"
+)
+?.addEventListener(
+"click",
+(e)=>{
+
+
+    if(
+        e.target.id ===
+        "date-sheet"
+    ){
+
+
+        e.currentTarget.style.display =
+        "none";
+
+
+    }
+
+
+});
+
+
+
+
+
+
+
+// 初回表示
 
 renderCalendar();

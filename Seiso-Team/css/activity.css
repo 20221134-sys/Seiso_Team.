@@ -466,3 +466,62 @@ input:focus {
 
 
 }
+
+
+/* -------------------------------
+   自動保存表示
+-------------------------------- */
+
+
+.save-message {
+
+    text-align:center;
+
+    color:#7aa;
+
+    font-size:14px;
+
+    margin:20px 0;
+
+    min-height:20px;
+
+}
+
+/* -------------------------------
+   ホームへ戻るボタン
+-------------------------------- */
+
+
+.back-button {
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:#dff3f5;
+
+    color:#333;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    transition:0.3s;
+
+}
+
+
+
+.back-button:hover {
+
+    transform:translateY(-2px);
+
+    opacity:0.8;
+
+}
+
+

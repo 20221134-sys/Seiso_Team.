@@ -197,17 +197,24 @@ function saveLatestActivity(data){
 
 
 
+if(!place.trim()){
 
 
-   if(!place.trim()){
-
-
+    // 最新活動を削除
     localStorage.removeItem(
         `latest-${pageDate}`
     );
 
 
+    // 記録データ自体も削除
+    localStorage.removeItem(
+        saveKey
+    );
+
+
     return;
+
+
 
 }
 

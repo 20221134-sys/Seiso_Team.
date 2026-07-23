@@ -199,9 +199,17 @@ function saveLatestActivity(data){
 
 
 
-    if(!place){
-        return;
-    }
+   if(!place.trim()){
+
+
+    localStorage.removeItem(
+        `latest-${pageDate}`
+    );
+
+
+    return;
+
+}
 
 
 

@@ -523,5 +523,15 @@ input:focus {
 
 }
 
+.save-message {
 
+    text-align:right;
+
+    margin:0 10px 5px 0;
+
+    font-size:13px;
+
+    color:#7aa;
+
+}
 

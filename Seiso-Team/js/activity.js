@@ -204,12 +204,26 @@ if(!place.trim()){
     localStorage.removeItem(
         `latest-${pageDate}`
     );
-
-
-    // 記録データ自体も削除
-    localStorage.removeItem(
-        saveKey
+ // カレンダー表示用の記録を削除
+    const savedData =
+    JSON.parse(
+        localStorage.getItem(saveKey)
     );
+
+
+    if(savedData){
+
+        delete savedData.activity;
+
+
+        localStorage.setItem(
+            saveKey,
+            JSON.stringify(savedData)
+        );
+
+    }
+
+
 
 
     return;

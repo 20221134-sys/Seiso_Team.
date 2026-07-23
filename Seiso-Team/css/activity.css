@@ -1,0 +1,618 @@
+/* =================================
+   清掃班活動記録サイト
+   activity.css
+================================= */
+
+
+/* -------------------------------
+   活動ページ全体
+-------------------------------- */
+
+
+.activity-page {
+
+    background:#ffffff;
+
+    min-height:100vh;
+
+    padding:
+
+    40px 24px;
+
+}
+
+
+
+
+.activity-container {
+
+    max-width:
+
+    900px;
+
+    margin:
+
+    0 auto;
+
+}
+
+
+
+
+/* -------------------------------
+   ヘッダー
+-------------------------------- */
+
+
+.activity-header {
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.activity-date {
+
+    font-size:
+
+    28px;
+
+    font-weight:
+
+    700;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+.activity-title {
+
+
+    display:
+
+    inline-block;
+
+
+    padding:
+
+    10px 30px;
+
+
+    border-radius:
+
+    999px;
+
+
+    background:
+
+    #dff3f5;
+
+
+    font-family:
+
+    "Poppins",
+
+    sans-serif;
+
+
+    font-size:
+
+    20px;
+
+
+}
+
+
+
+
+
+
+
+/* -------------------------------
+   入力カード
+-------------------------------- */
+
+
+.activity-card {
+
+
+    background:
+
+    #ffffff;
+
+
+    border-radius:
+
+    25px;
+
+
+    padding:
+
+    30px;
+
+
+    margin-bottom:
+
+    25px;
+
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+
+
+.activity-card h2 {
+
+
+    font-size:
+
+    21px;
+
+
+    margin-top:
+
+    0;
+
+
+}
+
+
+
+
+
+.description {
+
+
+    font-size:
+
+    13px;
+
+
+    color:
+
+    #777;
+
+
+    margin-bottom:
+
+    10px;
+
+
+}
+
+
+
+
+
+
+
+/* -------------------------------
+   入力欄
+-------------------------------- */
+
+
+textarea,
+input {
+
+
+    width:
+
+    100%;
+
+
+    border:
+
+    none;
+
+
+    background:
+
+    #fafafa;
+
+
+    border-radius:
+
+    16px;
+
+
+    padding:
+
+    18px;
+
+
+    font-family:
+
+    inherit;
+
+
+    font-size:
+
+    16px;
+
+
+    outline:
+
+    none;
+
+
+    resize:
+
+    vertical;
+
+
+    transition:
+
+    0.25s;
+
+
+}
+
+
+
+
+textarea:focus,
+input:focus {
+
+
+    background:
+
+    #ffffff;
+
+
+    box-shadow:
+
+    0 0 0 3px #dff3f5;
+
+
+}
+
+
+
+
+
+.large-text {
+
+
+    min-height:
+
+    220px;
+
+
+}
+
+
+
+
+
+.normal-text {
+
+
+    min-height:
+
+    120px;
+
+
+}
+
+
+
+
+
+
+
+
+/* -------------------------------
+   清掃場所
+-------------------------------- */
+
+
+.place-grid {
+
+
+    display:
+
+    grid;
+
+
+    grid-template-columns:
+
+    1fr 1fr;
+
+
+    gap:
+
+    20px;
+
+
+}
+
+
+
+
+.place-box {
+
+
+    background:
+
+    #fafafa;
+
+
+    border-radius:
+
+    18px;
+
+
+    padding:
+
+    20px;
+
+
+}
+
+
+
+
+
+
+
+/* -------------------------------
+   Before After
+-------------------------------- */
+
+
+.photo-title {
+
+
+    margin-bottom:
+
+    15px;
+
+
+}
+
+
+
+
+.photo-area {
+
+
+    display:
+
+    grid;
+
+
+    grid-template-columns:
+
+    1fr 1fr;
+
+
+    gap:
+
+    20px;
+
+
+}
+
+
+
+.photo-box {
+
+
+    background:
+
+    #fafafa;
+
+
+    border-radius:
+
+    20px;
+
+
+    min-height:
+
+    220px;
+
+
+    display:
+
+    flex;
+
+
+    flex-direction:
+
+    column;
+
+
+    justify-content:
+
+    center;
+
+
+    align-items:
+
+    center;
+
+
+    overflow:
+
+    hidden;
+
+
+}
+
+
+
+
+.photo-box span {
+
+
+    font-family:
+
+    "Poppins",
+
+    sans-serif;
+
+
+    font-size:
+
+    18px;
+
+
+    margin-bottom:
+
+    15px;
+
+
+}
+
+
+
+
+
+.photo-box img {
+
+
+    max-width:
+
+    100%;
+
+
+    max-height:
+
+    200px;
+
+
+    object-fit:
+
+    cover;
+
+
+}
+
+
+
+
+
+
+.photo-input {
+
+
+    font-size:
+
+    14px;
+
+
+}
+
+
+
+
+
+
+
+
+/* -------------------------------
+   保存表示
+-------------------------------- */
+
+
+.save-message {
+
+
+    text-align:center;
+
+
+    color:#777;
+
+
+    font-size:
+
+    13px;
+
+
+    margin-top:
+
+    20px;
+
+
+}
+
+
+
+
+
+
+/* -------------------------------
+   レスポンシブ
+-------------------------------- */
+
+
+
+@media(max-width:700px){
+
+
+
+    .activity-page {
+
+
+        padding:
+
+        25px 15px;
+
+
+    }
+
+
+
+    .activity-card {
+
+
+        padding:
+
+        20px;
+
+
+    }
+
+
+
+
+    .place-grid {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+    }
+
+
+
+
+    .photo-area {
+
+
+        grid-template-columns:
+
+        1fr;
+
+
+    }
+
+
+
+}

@@ -5,12 +5,11 @@
 
 
 /*
-    サイト共通JavaScript
+    共通JavaScript
 
-    役割
     ・起動画面制御
     ・PWA登録
-    ・共通処理
+    ・最新活動表示
 */
 
 
@@ -22,22 +21,32 @@
 // ================================
 
 
-window.addEventListener("load", () => {
+window.addEventListener(
+"load",
+()=>{
 
 
-    const splash = document.getElementById("splash");
+    const splash =
+    document.getElementById(
+        "splash"
+    );
 
 
-    if (splash) {
+
+    if(splash){
 
 
-        setTimeout(() => {
+        setTimeout(
+        ()=>{
 
 
-            splash.style.display = "none";
+            splash.style.display =
+            "none";
 
 
-        }, 2000);
+        },
+        2000
+        );
 
 
     }
@@ -57,17 +66,24 @@ window.addEventListener("load", () => {
 // ================================
 
 
-if ("serviceWorker" in navigator) {
+if(
+    "serviceWorker" in navigator
+){
 
 
-    window.addEventListener("load", () => {
+    window.addEventListener(
+    "load",
+    ()=>{
 
 
         navigator.serviceWorker
-        .register("/service-worker.js")
+        .register(
+            "/service-worker.js"
+        )
 
 
-        .then(() => {
+        .then(
+        ()=>{
 
 
             console.log(
@@ -78,7 +94,9 @@ if ("serviceWorker" in navigator) {
         })
 
 
-        .catch((error) => {
+
+        .catch(
+        error=>{
 
 
             console.log(
@@ -102,8 +120,189 @@ if ("serviceWorker" in navigator) {
 
 
 
+
 // ================================
-// ページ表示アニメーション補助
+// 最新の活動表示
+// ================================
+
+
+function loadLatestActivities(){
+
+
+
+    const box =
+    document.getElementById(
+        "latest-activities"
+    );
+
+
+
+    if(!box){
+        return;
+    }
+
+
+
+    box.innerHTML = "";
+
+
+
+    let activities = [];
+
+
+
+
+
+    for(
+        let i = 0;
+        i < localStorage.length;
+        i++
+    ){
+
+
+        const key =
+        localStorage.key(i);
+
+
+
+        if(
+            key &&
+            key.startsWith(
+                "latest-"
+            )
+        ){
+
+
+            const data =
+            JSON.parse(
+                localStorage.getItem(key)
+            );
+
+
+
+            activities.push(
+                data
+            );
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+    // 新しい順
+
+    activities.sort(
+    (a,b)=>{
+
+
+        return new Date(b.date)
+        -
+        new Date(a.date);
+
+
+    });
+
+
+
+
+
+
+
+
+    // 記録なし
+
+    if(
+        activities.length === 0
+    ){
+
+
+        box.innerHTML = `
+
+        <p class="no-activity">
+        まだ活動記録がありません
+        </p>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+
+
+
+
+
+    // 最大3件表示
+
+    activities
+    .slice(0,3)
+    .forEach(
+    activity=>{
+
+
+        const item =
+        document.createElement(
+            "div"
+        );
+
+
+        item.className =
+        "latest-item";
+
+
+
+        const date =
+        new Date(
+            activity.date
+        );
+
+
+
+        item.innerHTML = `
+
+        <p>
+        ${date.getMonth()+1}月${date.getDate()}日
+        </p>
+
+
+        <span>
+        ${activity.text}
+        </span>
+
+        `;
+
+
+
+        box.appendChild(
+            item
+        );
+
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+// ================================
+// カード表示アニメーション
 // ================================
 
 
@@ -118,16 +317,19 @@ document.addEventListener(
     );
 
 
+
     cards.forEach(
-        (card,index)=>{
+    (card,index)=>{
 
 
-            card.style.animationDelay =
-            `${index * 0.08}s`;
+        card.style.animationDelay =
+        `${index * 0.08}s`;
 
 
-        }
-    );
+    });
+
+
+    loadLatestActivities();
 
 
 });

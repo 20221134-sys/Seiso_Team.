@@ -16,7 +16,6 @@
     min-height:100vh;
 
     padding:
-
     40px 24px;
 
 }
@@ -27,14 +26,15 @@
 .activity-container {
 
     max-width:
-
     900px;
 
     margin:
-
     0 auto;
 
 }
+
+
+
 
 
 
@@ -48,7 +48,8 @@
 
     text-align:center;
 
-    margin-bottom:40px;
+    margin-bottom:
+    40px;
 
 }
 
@@ -57,14 +58,13 @@
 .activity-date {
 
     font-size:
-
     28px;
 
     font-weight:
-
     700;
 
-    margin-bottom:10px;
+    margin-bottom:
+    10px;
 
 }
 
@@ -73,40 +73,32 @@
 
 .activity-title {
 
-
     display:
-
     inline-block;
 
 
     padding:
-
     10px 30px;
 
 
     border-radius:
-
     999px;
 
 
     background:
-
     #dff3f5;
 
 
     font-family:
-
     "Poppins",
-
     sans-serif;
 
 
     font-size:
-
     20px;
 
-
 }
+
 
 
 
@@ -121,51 +113,42 @@
 
 .activity-card {
 
-
     background:
-
     #ffffff;
 
 
     border-radius:
-
     25px;
 
 
     padding:
-
     30px;
 
 
     margin-bottom:
-
     25px;
 
 
     box-shadow:
-
     0 8px 25px rgba(0,0,0,0.08);
-
 
 }
 
 
 
 
-
-
 .activity-card h2 {
 
-
     font-size:
-
     21px;
 
 
     margin-top:
-
     0;
 
+
+    margin-bottom:
+    15px;
 
 }
 
@@ -175,21 +158,16 @@
 
 .description {
 
-
     font-size:
-
     13px;
 
 
     color:
-
     #777;
 
 
     margin-bottom:
-
     10px;
-
 
 }
 
@@ -209,56 +187,46 @@ input {
 
 
     width:
-
     100%;
 
 
     border:
-
     none;
 
 
     background:
-
     #fafafa;
 
 
     border-radius:
-
     16px;
 
 
     padding:
-
     18px;
 
 
     font-family:
-
     inherit;
 
 
     font-size:
-
     16px;
 
 
     outline:
-
     none;
 
 
     resize:
-
     vertical;
 
 
     transition:
-
     0.25s;
 
-
 }
+
 
 
 
@@ -268,14 +236,11 @@ input:focus {
 
 
     background:
-
     #ffffff;
 
 
     box-shadow:
-
     0 0 0 3px #dff3f5;
-
 
 }
 
@@ -285,82 +250,21 @@ input:focus {
 
 .large-text {
 
-
     min-height:
-
     220px;
 
-
 }
-
 
 
 
 
 .normal-text {
 
-
     min-height:
-
     120px;
 
-
 }
 
-
-
-
-
-
-
-
-/* -------------------------------
-   清掃場所
--------------------------------- */
-
-
-.place-grid {
-
-
-    display:
-
-    grid;
-
-
-    grid-template-columns:
-
-    1fr 1fr;
-
-
-    gap:
-
-    20px;
-
-
-}
-
-
-
-
-.place-box {
-
-
-    background:
-
-    #fafafa;
-
-
-    border-radius:
-
-    18px;
-
-
-    padding:
-
-    20px;
-
-
-}
 
 
 
@@ -375,11 +279,8 @@ input:focus {
 
 .photo-title {
 
-
     margin-bottom:
-
     15px;
-
 
 }
 
@@ -388,23 +289,19 @@ input:focus {
 
 .photo-area {
 
-
     display:
-
     grid;
 
 
     grid-template-columns:
-
     1fr 1fr;
 
 
     gap:
-
     20px;
 
-
 }
+
 
 
 
@@ -412,44 +309,35 @@ input:focus {
 
 
     background:
-
     #fafafa;
 
 
     border-radius:
-
     20px;
 
 
     min-height:
-
     220px;
 
 
     display:
-
     flex;
 
 
     flex-direction:
-
     column;
 
 
     justify-content:
-
     center;
 
 
     align-items:
-
     center;
 
 
     overflow:
-
     hidden;
-
 
 }
 
@@ -460,24 +348,18 @@ input:focus {
 
 
     font-family:
-
     "Poppins",
-
     sans-serif;
 
 
     font-size:
-
     18px;
 
 
     margin-bottom:
-
     15px;
 
-
 }
-
 
 
 
@@ -486,23 +368,17 @@ input:focus {
 
 
     max-width:
-
     100%;
 
 
     max-height:
-
     200px;
 
 
     object-fit:
-
     cover;
 
-
 }
-
-
 
 
 
@@ -511,9 +387,7 @@ input:focus {
 
 
     font-size:
-
     14px;
-
 
 }
 
@@ -532,21 +406,20 @@ input:focus {
 .save-message {
 
 
-    text-align:center;
+    text-align:
+    center;
 
 
-    color:#777;
+    color:
+    #777;
 
 
     font-size:
-
     13px;
 
 
     margin-top:
-
     20px;
-
 
 }
 
@@ -555,23 +428,20 @@ input:focus {
 
 
 
-/* -------------------------------
-   レスポンシブ
--------------------------------- */
 
+
+/* -------------------------------
+   スマホ対応
+-------------------------------- */
 
 
 @media(max-width:700px){
 
 
-
     .activity-page {
 
-
         padding:
-
         25px 15px;
-
 
     }
 
@@ -579,24 +449,8 @@ input:focus {
 
     .activity-card {
 
-
         padding:
-
         20px;
-
-
-    }
-
-
-
-
-    .place-grid {
-
-
-        grid-template-columns:
-
-        1fr;
-
 
     }
 
@@ -605,14 +459,10 @@ input:focus {
 
     .photo-area {
 
-
         grid-template-columns:
-
         1fr;
 
-
     }
-
 
 
 }

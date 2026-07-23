@@ -189,50 +189,23 @@ showSaveMessage();
 function saveLatestActivity(data){
 
 
-
-    // ①本日の活動の内容
-
     const place =
     data["activity"];
 
 
 
-if(!place.trim()){
+    if(!place.trim()){
 
 
-    // 最新活動を削除
-    localStorage.removeItem(
-        `latest-${pageDate}`
-    );
- // カレンダー表示用の記録を削除
-    const savedData =
-    JSON.parse(
-        localStorage.getItem(saveKey)
-    );
-
-
-    if(savedData){
-
-        delete savedData.activity;
-
-
-        localStorage.setItem(
-            saveKey,
-            JSON.stringify(savedData)
+        localStorage.removeItem(
+            `latest-${pageDate}`
         );
 
+
+        return;
+
+
     }
-
-
-
-
-    return;
-
-
-
-}
-
-
 
 
 
